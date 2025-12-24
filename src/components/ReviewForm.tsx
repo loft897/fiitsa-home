@@ -21,7 +21,7 @@ const clientReviewSchema = z.object({
 
 type ReviewFormValues = z.infer<typeof clientReviewSchema>;
 
-export function ReviewForm({ postSlug }: { postSlug: string }) {
+export function ReviewForm({ postId }: { postId: string }) {
   const [loading, setLoading] = useState(false);
   const form = useForm<ReviewFormValues>({
     resolver: zodResolver(clientReviewSchema),
@@ -36,7 +36,7 @@ export function ReviewForm({ postSlug }: { postSlug: string }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...values,
-          postSlug,
+          postId,
           rating: Number(values.rating),
         }),
       });

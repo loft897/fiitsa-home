@@ -16,7 +16,7 @@
 
 export type Review = {
   id: string;
-  post_slug: string;
+  post_id: string;
   rating: number;
   name: string | null;
   message: string;

@@ -26,9 +26,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const post = await getPostBySlug(slug);
   return buildArticleMetadata(post);
 }
@@ -37,20 +37,21 @@ export default async function ArticlePage({
   params,
   searchParams,
 }: {
-  params: { slug: string };
-  searchParams?: { reviewsPage?: string };
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ reviewsPage?: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const post = await getPostBySlug(slug).catch(() => null);
 
   if (!post) {
     notFound();
   }
 
-  const reviewsPage = Number(searchParams?.reviewsPage || 1);
+  const reviewsPage = Number(resolvedSearchParams?.reviewsPage || 1);
   const pageSize = 6;
   const [reviewsResult, similarPosts] = await Promise.all([
-    listApprovedReviews(slug, reviewsPage, pageSize),
+    listApprovedReviews(post.id, reviewsPage, pageSize),
     getSimilarPosts(post),
   ]);
 
@@ -59,7 +60,7 @@ export default async function ArticlePage({
 
   return (
     <div className="space-y-12">
-      <ViewTracker slug={post.slug} />
+      <ViewTracker postId={post.id} />
       <Breadcrumbs
         items={[
           { label: "Accueil", href: "/" },
@@ -95,6 +96,7 @@ export default async function ArticlePage({
               src={post.cover_url || "/og-default.png"}
               alt={post.title}
               fill
+              sizes="(max-width: 1024px) 100vw, 800px"
               className="object-cover"
               priority
             />
@@ -133,6 +135,7 @@ export default async function ArticlePage({
       </section>
 
       <Reviews
+        postId={post.id}
         postSlug={post.slug}
         reviews={reviewsResult.data}
         count={reviewsResult.count}

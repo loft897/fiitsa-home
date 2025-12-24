@@ -144,15 +144,15 @@ export async function getSimilarPosts(post: Post, limit = 3) {
   return (data || []) as PostPreview[];
 }
 
-export async function listApprovedReviews(postSlug: string, page = 1, pageSize = 6) {
+export async function listApprovedReviews(postId: string, page = 1, pageSize = 6) {
   const supabaseServer = requireSupabaseServer();
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
 
   const { data, error, count } = await supabaseServer
-    .from("reviews")
-    .select("id, post_slug, rating, name, message, created_at", { count: "exact" })
-    .eq("post_slug", postSlug)
+    .from("post_reviews")
+    .select("id, post_id, rating, name, message, created_at", { count: "exact" })
+    .eq("post_id", postId)
     .eq("is_approved", true)
     .order("created_at", { ascending: false })
     .range(from, to);

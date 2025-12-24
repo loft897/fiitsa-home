@@ -4,12 +4,14 @@ import { Pagination } from "@/components/Pagination";
 import type { Review } from "@/lib/types";
 
 export function Reviews({
+  postId,
   postSlug,
   reviews,
   count,
   page,
   pageSize,
 }: {
+  postId: string;
   postSlug: string;
   reviews: Review[];
   count: number | null;
@@ -65,7 +67,7 @@ export function Reviews({
           Votre message sera verifie avant publication.
         </p>
         <div className="mt-4">
-          <ReviewForm postSlug={postSlug} />
+          <ReviewForm postId={postId} />
         </div>
       </div>
     </section>
