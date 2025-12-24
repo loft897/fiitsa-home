@@ -1,4 +1,4 @@
-﻿import { supabaseServer } from "@/lib/supabaseServer";
+import { getSupabaseServer } from "@/lib/supabaseServer";
 import type { Post, PostPreview, Review } from "@/lib/types";
 
 export type PostListOptions = {
@@ -10,10 +10,20 @@ export type PostListOptions = {
   pageSize?: number;
 };
 
+function requireSupabaseServer() {
+  const client = getSupabaseServer();
+  if (!client) {
+    throw new Error("Missing Supabase environment variables.");
+  }
+  return client;
+}
+
 export async function listPosts(options: PostListOptions = {}) {
   const { query, tag, category, sort = "recent", page = 1, pageSize = 9 } = options;
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
+
+  const supabaseServer = requireSupabaseServer();
 
   if (sort === "popular" && !query && !tag && !category) {
     const { data, error } = await supabaseServer.rpc("get_popular_posts", {
@@ -34,9 +44,7 @@ export async function listPosts(options: PostListOptions = {}) {
     .eq("is_published", true);
 
   if (query) {
-    queryBuilder = queryBuilder.or(
-      `title.ilike.%${query}%,description.ilike.%${query}%`
-    );
+    queryBuilder = queryBuilder.or(`title.ilike.%${query}%,description.ilike.%${query}%`);
   }
 
   if (tag) {
@@ -56,6 +64,7 @@ export async function listPosts(options: PostListOptions = {}) {
 }
 
 export async function getPostBySlug(slug: string) {
+  const supabaseServer = requireSupabaseServer();
   const { data, error } = await supabaseServer
     .from("posts")
     .select("*")
@@ -68,6 +77,7 @@ export async function getPostBySlug(slug: string) {
 }
 
 export async function getAllPostSlugs() {
+  const supabaseServer = requireSupabaseServer();
   const { data, error } = await supabaseServer
     .from("posts")
     .select("slug")
@@ -78,6 +88,7 @@ export async function getAllPostSlugs() {
 }
 
 export async function getCategories() {
+  const supabaseServer = requireSupabaseServer();
   const { data, error } = await supabaseServer
     .from("posts")
     .select("category_slug")
@@ -93,6 +104,7 @@ export async function getCategories() {
 }
 
 export async function getTags() {
+  const supabaseServer = requireSupabaseServer();
   const { data, error } = await supabaseServer
     .from("posts")
     .select("tags")
@@ -107,11 +119,14 @@ export async function getTags() {
 }
 
 export async function getSimilarPosts(post: Post, limit = 3) {
+  const supabaseServer = requireSupabaseServer();
   if (!post.category_slug && (!post.tags || post.tags.length === 0)) return [];
 
   let queryBuilder = supabaseServer
     .from("posts")
-    .select("id, slug, title, description, cover_url, author_name, tags, category_slug, published_at, updated_at, reading_time, is_published")
+    .select(
+      "id, slug, title, description, cover_url, author_name, tags, category_slug, published_at, updated_at, reading_time, is_published"
+    )
     .eq("is_published", true)
     .neq("slug", post.slug);
 
@@ -130,6 +145,7 @@ export async function getSimilarPosts(post: Post, limit = 3) {
 }
 
 export async function listApprovedReviews(postSlug: string, page = 1, pageSize = 6) {
+  const supabaseServer = requireSupabaseServer();
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
 

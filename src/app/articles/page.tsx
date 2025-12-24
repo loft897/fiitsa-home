@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { Suspense } from "react";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ArticlesFilters } from "@/components/ArticlesFilters";
 import { Pagination } from "@/components/Pagination";
@@ -56,7 +57,15 @@ export default async function ArticlesPage({
         </p>
       </div>
 
-      <ArticlesFilters categories={categories} tags={tags} />
+      <Suspense
+        fallback={
+          <div className="rounded-3xl border border-border/60 bg-background/80 p-4 text-sm text-muted-foreground">
+            Chargement des filtres...
+          </div>
+        }
+      >
+        <ArticlesFilters categories={categories} tags={tags} />
+      </Suspense>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {result.data.length === 0 ? (

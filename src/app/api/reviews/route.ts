@@ -1,6 +1,6 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { rateLimit } from "@/lib/rateLimit";
-import { supabaseServer } from "@/lib/supabaseServer";
+import { getSupabaseServer } from "@/lib/supabaseServer";
 import { reviewSchema } from "@/lib/validators";
 
 async function verifyRecaptcha(token: string) {
@@ -18,6 +18,11 @@ async function verifyRecaptcha(token: string) {
 }
 
 export async function POST(request: Request) {
+  const supabaseServer = getSupabaseServer();
+  if (!supabaseServer) {
+    return NextResponse.json({ message: "Supabase non configure." }, { status: 500 });
+  }
+
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0] || "anonymous";
   const limit = rateLimit(`reviews:${ip}`, { windowMs: 60_000, max: 3 });
 

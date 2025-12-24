@@ -1,7 +1,8 @@
-﻿import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabaseServer";
+import { NextResponse } from "next/server";
+import { getSupabaseAdmin } from "@/lib/supabaseServer";
 
 export async function POST(request: Request) {
+  const supabaseAdmin = getSupabaseAdmin();
   if (!supabaseAdmin) {
     return NextResponse.json({ message: "Service role non configure." }, { status: 500 });
   }
