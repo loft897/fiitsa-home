@@ -50,16 +50,16 @@ export async function POST(request: Request) {
     }
   }
 
-  const { error } = await supabaseServer.from("post_reviews").insert([
-    {
-      post_id: review.postId,
-      rating: review.rating,
-      name: review.name || null,
-      email: review.email || null,
-      message: review.message,
-      is_approved: false,
-    },
-  ]);
+  const payload = {
+    post_id: review.postId,
+    rating: review.rating,
+    name: review.name || null,
+    email: review.email || null,
+    message: review.message,
+    is_approved: false,
+  };
+
+  const { error } = await supabaseServer.from("post_reviews").insert([payload]);
 
   if (error) {
     return NextResponse.json({ message: "Erreur serveur." }, { status: 500 });
