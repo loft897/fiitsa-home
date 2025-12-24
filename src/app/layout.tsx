@@ -1,10 +1,9 @@
 ﻿import type { Metadata } from "next";
-import { Space_Grotesk, Source_Sans_3 } from "next/font/google";
+import { Fira_Code, Space_Grotesk, Source_Sans_3 } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
+import { Shell } from "@/components/Shell";
 import "./globals.css";
 
 const displayFont = Space_Grotesk({
@@ -14,6 +13,11 @@ const displayFont = Space_Grotesk({
 
 const bodyFont = Source_Sans_3({
   variable: "--font-body",
+  subsets: ["latin"],
+});
+
+const monoFont = Fira_Code({
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -66,15 +70,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`${displayFont.variable} ${bodyFont.variable} antialiased`}>
+      <body
+        className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} antialiased`}
+      >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <div className="min-h-screen bg-aurora">
-            <Header />
-            <main className="mx-auto w-full max-w-6xl px-4 pb-20 pt-28 md:px-6">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <Shell>{children}</Shell>
           <Toaster richColors position="top-right" />
           <SEOJsonLd
             data={{

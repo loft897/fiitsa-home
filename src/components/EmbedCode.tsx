@@ -5,7 +5,11 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
 export function EmbedCode({ slug }: { slug: string }) {
-  const embed = `<iframe src="https://blog.fiitsa.com/embed/${slug}" width="100%" height="720" style="border:0;border-radius:16px;overflow:hidden" loading="lazy"></iframe>`;
+  const baseUrl =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : process.env.NEXT_PUBLIC_SITE_URL || "https://blog.fiitsa.com";
+  const embed = `<iframe src="${baseUrl}/embed/${slug}" width="100%" height="720" style="border:0;border-radius:16px;overflow:hidden" loading="lazy"></iframe>`;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(embed);

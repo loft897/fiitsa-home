@@ -22,3 +22,5 @@ export type Review = {
   message: string;
   created_at: string;
 };
+
+export type PostPreview = Omit<Post, "content">;

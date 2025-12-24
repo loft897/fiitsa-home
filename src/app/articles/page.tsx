@@ -41,6 +41,11 @@ export default async function ArticlesPage({
   ]);
 
   const totalPages = result.count ? Math.ceil(result.count / pageSize) : 1;
+  const queryParams = new URLSearchParams();
+  if (searchParams?.query) queryParams.set("query", searchParams.query);
+  if (searchParams?.category) queryParams.set("category", searchParams.category);
+  if (searchParams?.tag) queryParams.set("tag", searchParams.tag);
+  if (searchParams?.sort) queryParams.set("sort", searchParams.sort);
 
   return (
     <div className="space-y-10">
@@ -54,12 +59,21 @@ export default async function ArticlesPage({
       <ArticlesFilters categories={categories} tags={tags} />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {result.data.map((post) => (
-          <ArticleCard key={post.id} post={post} />
-        ))}
+        {result.data.length === 0 ? (
+          <p className="text-sm text-muted-foreground">
+            Aucun article ne correspond a votre recherche.
+          </p>
+        ) : (
+          result.data.map((post) => <ArticleCard key={post.id} post={post} />)
+        )}
       </div>
 
-      <Pagination currentPage={page} totalPages={totalPages} basePath="/articles" />
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        basePath="/articles"
+        queryString={queryParams.toString()}
+      />
     </div>
   );
 }

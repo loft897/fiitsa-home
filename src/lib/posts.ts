@@ -1,5 +1,5 @@
 ﻿import { supabaseServer } from "@/lib/supabaseServer";
-import type { Post, Review } from "@/lib/types";
+import type { Post, PostPreview, Review } from "@/lib/types";
 
 export type PostListOptions = {
   query?: string;
@@ -15,14 +15,14 @@ export async function listPosts(options: PostListOptions = {}) {
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
 
-  if (sort === "popular") {
+  if (sort === "popular" && !query && !tag && !category) {
     const { data, error } = await supabaseServer.rpc("get_popular_posts", {
       limit_count: pageSize,
       offset_count: from,
     });
 
     if (error) throw error;
-    return { data: (data || []) as Post[], count: null };
+    return { data: (data || []) as PostPreview[], count: null };
   }
 
   let queryBuilder = supabaseServer
@@ -52,7 +52,7 @@ export async function listPosts(options: PostListOptions = {}) {
     .range(from, to);
 
   if (error) throw error;
-  return { data: (data || []) as Post[], count };
+  return { data: (data || []) as PostPreview[], count };
 }
 
 export async function getPostBySlug(slug: string) {
@@ -126,7 +126,7 @@ export async function getSimilarPosts(post: Post, limit = 3) {
     .limit(limit);
 
   if (error) throw error;
-  return (data || []) as Post[];
+  return (data || []) as PostPreview[];
 }
 
 export async function listApprovedReviews(postSlug: string, page = 1, pageSize = 6) {

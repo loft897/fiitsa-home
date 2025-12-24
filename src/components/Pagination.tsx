@@ -24,15 +24,27 @@ export function Pagination({
 
   return (
     <div className="flex items-center justify-between">
-      <Button asChild variant="outline" disabled={currentPage <= 1}>
-        <Link href={buildHref(Math.max(1, currentPage - 1))}>Precedent</Link>
-      </Button>
+      {currentPage <= 1 ? (
+        <Button variant="outline" disabled>
+          Precedent
+        </Button>
+      ) : (
+        <Button asChild variant="outline">
+          <Link href={buildHref(currentPage - 1)}>Precedent</Link>
+        </Button>
+      )}
       <span className="text-sm text-muted-foreground">
         Page {currentPage} sur {totalPages}
       </span>
-      <Button asChild variant="outline" disabled={currentPage >= totalPages}>
-        <Link href={buildHref(Math.min(totalPages, currentPage + 1))}>Suivant</Link>
-      </Button>
+      {currentPage >= totalPages ? (
+        <Button variant="outline" disabled>
+          Suivant
+        </Button>
+      ) : (
+        <Button asChild variant="outline">
+          <Link href={buildHref(currentPage + 1)}>Suivant</Link>
+        </Button>
+      )}
     </div>
   );
 }
