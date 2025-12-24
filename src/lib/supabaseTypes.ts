@@ -1,5 +1,6 @@
 export type Database = {
   public: {
+    Views: Record<string, never>;
     Tables: {
       posts: {
         Row: {
@@ -103,5 +104,7 @@ export type Database = {
         Returns: Database["public"]["Tables"]["posts"]["Row"][];
       };
     };
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 };
