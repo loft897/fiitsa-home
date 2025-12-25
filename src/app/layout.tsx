@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     images: [
       {
-        url: "/og-fiitsa.jpg",
+        url: "https://api.fiitsa.com/storage/v1/object/public/fiitsa-files/Fiitsa%20arrondi%20sans%20bg%20(1200%20x%20630%20px).png",
         width: 1200,
         height: 630,
         alt: "Fiitsa",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "Fiitsa - Crée ta boutique en ligne en 3 minutes",
     description:
       "Fiitsa aide les entrepreneurs africains à créer leur boutique en ligne, vendre et encaisser avec mobile money.",
-    images: ["/og-fiitsa.jpg"],
+    images: ["https://api.fiitsa.com/storage/v1/object/public/fiitsa-files/Fiitsa%20arrondi%20sans%20bg%20(1200%20x%20630%20px).png"],
   },
   icons: {
     icon: "/icon.png",

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import HomeClient from "@/app/HomeClient";
 
-const ogImage = "https://www.fiitsa.com/og-fiitsa.jpg";
+const ogImage =
+  "https://api.fiitsa.com/storage/v1/object/public/fiitsa-files/Fiitsa%20arrondi%20sans%20bg%20(1200%20x%20630%20px).png";
 
 export const metadata: Metadata = {
   title: "Fiitsa - Ta boutique. Tes règles. Tes gains.",
