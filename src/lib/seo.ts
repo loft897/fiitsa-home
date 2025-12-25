@@ -1,7 +1,7 @@
 ﻿import type { Metadata } from "next";
 import type { Post } from "@/lib/types";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.fiitsa.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://fiitsa.com";
 
 export function absoluteUrl(path: string) {
   if (path.startsWith("http")) return path;

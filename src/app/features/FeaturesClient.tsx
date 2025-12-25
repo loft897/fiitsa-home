@@ -28,7 +28,7 @@ export default function FeaturesClient() {
   useEffect(() => {
     document.title =
       language === "fr"
-        ? "FonctionnalitÇ¸s Fiitsa - Vendre en ligne en Afrique"
+        ? "Fonctionnalités Fiitsa - Vendre en ligne en Afrique"
         : "Fiitsa Features - Sell online in Africa";
     const description =
       document.querySelector('meta[name="description"]') || document.createElement("meta");
@@ -36,7 +36,7 @@ export default function FeaturesClient() {
     description.setAttribute(
       "content",
       language === "fr"
-        ? "DÇ¸couvre les fonctionnalitÇ¸s Fiitsa pour vendre produits, services et formations. Paiements Mobile Money, IA, marketing, et plus."
+        ? "Découvre les fonctionnalités Fiitsa pour vendre produits, services et formations. Paiements Mobile Money, IA, marketing, et plus."
         : "Discover Fiitsa features to sell products, services and training. Mobile Money payments, AI, marketing, and more."
     );
     if (!description.parentNode) {
@@ -56,7 +56,7 @@ export default function FeaturesClient() {
       title: language === "fr" ? "Inscris-toi gratuitement (30 sec)" : "Sign up for free (30 sec)",
       desc:
         language === "fr"
-          ? "CrÇ¸e ton compte en quelques clics et accÇùde Çÿ ton tableau de bord."
+          ? "Crée ton compte en quelques clics et accède à ton tableau de bord."
           : "Create your account in a few clicks and access your dashboard.",
     },
     {
@@ -65,7 +65,7 @@ export default function FeaturesClient() {
         language === "fr" ? "Ajoute ton produit ou service (2 min)" : "Add your product or service (2 min)",
       desc:
         language === "fr"
-          ? "Produits physiques, numÇ¸riques, services, formations - tout est prÇ¦t."
+          ? "Produits physiques, numériques, services, formations - tout est prÇ¦t."
           : "Physical products, digital, services, training - everything is ready.",
     },
     {
@@ -87,7 +87,7 @@ export default function FeaturesClient() {
       title: language === "fr" ? "Produits & Services" : "Products & Services",
       bullets:
         language === "fr"
-          ? ["Vends physique, digital, services, formations", "Gestion des variantes et stocks", "Pages produit optimisÇ¸es"]
+          ? ["Vends physique, digital, services, formations", "Gestion des variantes et stocks", "Pages produit optimisées"]
           : ["Sell physical, digital, services, training", "Manage variants and inventory", "Optimized product pages"],
     },
     {
@@ -95,7 +95,7 @@ export default function FeaturesClient() {
       title: language === "fr" ? "Vente & Paiement" : "Sales & Payment",
       bullets:
         language === "fr"
-          ? ["Mobile Money natif, cartes bancaires", "RÇ¸cupÇ¸ration paniers abandonnÇ¸s", "Upsell et coupons"]
+          ? ["Mobile Money natif, cartes bancaires", "Récupération paniers abandonnés", "Upsell et coupons"]
           : ["Native Mobile Money, bank cards", "Abandoned cart recovery", "Upsell and coupons"],
     },
     {
@@ -103,7 +103,7 @@ export default function FeaturesClient() {
       title: language === "fr" ? "Analytiques & Suivi" : "Analytics & Tracking",
       bullets:
         language === "fr"
-          ? ["Statistiques en temps rÇ¸el", "Suivi des conversions", "PrÇ¸dictions pilotÇ¸es par IA"]
+          ? ["Statistiques en temps réel", "Suivi des conversions", "Prédictions pilotées par IA"]
           : ["Real-time statistics", "Conversion tracking", "AI-powered predictions"],
     },
     {
@@ -111,7 +111,7 @@ export default function FeaturesClient() {
       title: language === "fr" ? "Marketing & Automation" : "Marketing & Automation",
       bullets:
         language === "fr"
-          ? ["Workflows automatisÇ¸s", "Programme d'affiliation", "A/B testing des pages"]
+          ? ["Workflows automatisés", "Programme d'affiliation", "A/B testing des pages"]
           : ["Automated workflows", "Affiliate program", "Page A/B testing"],
     },
     {
@@ -119,29 +119,29 @@ export default function FeaturesClient() {
       title: language === "fr" ? "Communication Client" : "Customer Communication",
       bullets:
         language === "fr"
-          ? ["WhatsApp Business intÇ¸grÇ¸", "Support omnicanal", "Templates de messages"]
+          ? ["WhatsApp Business intégré", "Support omnicanal", "Templates de messages"]
           : ["Integrated WhatsApp Business", "Omnichannel support", "Message templates"],
     },
     {
       icon: Smartphone,
-      title: language === "fr" ? "FonctionnalitÇ¸s avancÇ¸es" : "Advanced Features",
+      title: language === "fr" ? "Fonctionnalités avancées" : "Advanced Features",
       bullets:
         language === "fr"
-          ? ["Multi-boutiques", "API et intÇ¸grations", "Application mobile"]
+          ? ["Multi-boutiques", "API et intégrations", "Application mobile"]
           : ["Multi-stores", "API and integrations", "Mobile application"],
     },
   ];
 
   const advantages = [
-    { label: language === "fr" ? "Commission Çÿ partir de 7%" : "Commission from 7%", fiitsa: true, competitor: false },
+    { label: language === "fr" ? "Commission à partir de 7%" : "Commission from 7%", fiitsa: true, competitor: false },
     { label: language === "fr" ? "Retraits en 48h" : "Withdrawals in 48h", fiitsa: true, competitor: false },
     { label: language === "fr" ? "Mobile Money natif" : "Native Mobile Money", fiitsa: true, competitor: false },
-    { label: language === "fr" ? "IA intÇ¸grÇ¸e" : "Integrated AI", fiitsa: true, competitor: false },
+    { label: language === "fr" ? "IA intégrée" : "Integrated AI", fiitsa: true, competitor: false },
   ];
 
   const stats = [
     { label: language === "fr" ? "Entrepreneurs actifs" : "Active entrepreneurs", value: "250+" },
-    { label: language === "fr" ? "Revenus gÇ¸nÇ¸rÇ¸s en 2025" : "Revenue generated in 2025", value: "30M+ FCFA" },
+    { label: language === "fr" ? "Revenus générés en 2025" : "Revenue generated in 2025", value: "30M+ FCFA" },
     { label: language === "fr" ? "Pays africains" : "African countries", value: "13+" },
   ];
 
@@ -152,12 +152,12 @@ export default function FeaturesClient() {
           <div className="mx-auto max-w-3xl space-y-4 text-center">
             <h1 className="text-3xl font-bold tracking-tight text-white drop-shadow-lg md:text-5xl">
               {language === "fr"
-                ? "La seule plateforme de vente en ligne pensÇ¸e pour les entrepreneurs africains"
+                ? "La seule plateforme de vente en ligne pensée pour les entrepreneurs africains"
                 : "The only online sales platform designed for African entrepreneurs"}
             </h1>
             <p className="text-base font-medium text-white/90 md:text-lg">
               {language === "fr"
-                ? "Vends produits physiques, numÇ¸riques, services et formations... tout en un seul endroit."
+                ? "Vends produits physiques, numériques, services et formations... tout en un seul endroit."
                 : "Sell physical products, digital, services and training... all in one place."}
             </p>
             <div className="pt-2">
@@ -178,7 +178,7 @@ export default function FeaturesClient() {
               {language === "fr" ? "Comment Çõa marche" : "How it works"}
             </h2>
             <p className="mt-2 text-muted-foreground">
-              {language === "fr" ? "3 Ç¸tapes simples pour te lancer" : "3 simple steps to get started"}
+              {language === "fr" ? "3 étapes simples pour te lancer" : "3 simple steps to get started"}
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
@@ -212,7 +212,7 @@ export default function FeaturesClient() {
           <div className="container mx-auto px-4 py-12 md:py-16">
             <div className="mx-auto mb-10 max-w-3xl text-center">
               <h2 className="text-2xl font-semibold md:text-3xl">
-                {language === "fr" ? "6 catÇ¸gories puissantes" : "6 powerful categories"}
+                {language === "fr" ? "6 catégories puissantes" : "6 powerful categories"}
               </h2>
               <p className="mt-2 text-muted-foreground">
                 {language === "fr"
@@ -275,7 +275,7 @@ export default function FeaturesClient() {
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-fiitsa-gold" />
                     <span>
                       {language === "fr"
-                        ? "Agent IA personnalisÇ¸ (rÇ¸ponses automatiques, relances)"
+                        ? "Agent IA personnalisé (réponses automatiques, relances)"
                         : "Personalized AI agent (automatic responses, follow-ups)"}
                     </span>
                   </li>
@@ -296,7 +296,7 @@ export default function FeaturesClient() {
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-fiitsa-gold" />
                     <span>
-                      {language === "fr" ? "Gestion rÇ¸seaux sociaux complÇùte" : "Complete social media management"}
+                      {language === "fr" ? "Gestion réseaux sociaux complète" : "Complete social media management"}
                     </span>
                   </li>
                 </ul>
@@ -309,7 +309,7 @@ export default function FeaturesClient() {
               <CardContent className="space-y-4">
                 <p className="text-sm text-muted-foreground">
                   {language === "fr"
-                    ? "Boost tes ventes grÇ½ce Çÿ l'automatisation IA et des publicitÇ¸s intelligentes."
+                    ? "Boost tes ventes grâce à l'automatisation IA et des publicités intelligentes."
                     : "Boost your sales with AI automation and smart advertising."}
                 </p>
                 <a href={premiumUrl}>
@@ -329,7 +329,7 @@ export default function FeaturesClient() {
                 {language === "fr" ? "Fiitsa vs Concurrence" : "Fiitsa vs Competition"}
               </h2>
               <p className="mt-2 text-muted-foreground">
-                {language === "fr" ? "Ce qui fait la diffÇ¸rence" : "What makes the difference"}
+                {language === "fr" ? "Ce qui fait la différence" : "What makes the difference"}
               </p>
             </div>
             <div className="mx-auto max-w-3xl">
@@ -366,11 +366,11 @@ export default function FeaturesClient() {
         <section className="container mx-auto bg-gradient-to-br from-fiitsa-light to-fiitsa-purple/5 px-4 py-12 md:py-16">
           <div className="mx-auto mb-10 max-w-4xl text-center">
             <h2 className="text-2xl font-semibold md:text-3xl">
-              {language === "fr" ? "Preuves sociales & chiffres clÇ¸s" : "Social proof & key figures"}
+              {language === "fr" ? "Preuves sociales & chiffres clés" : "Social proof & key figures"}
             </h2>
             <p className="mt-2 text-muted-foreground">
               {language === "fr"
-                ? "Des rÇ¸sultats concrets, une communautÇ¸ engagÇ¸e"
+                ? "Des résultats concrets, une communauté engagée"
                 : "Concrete results, an engaged community"}
             </p>
           </div>
@@ -410,7 +410,7 @@ export default function FeaturesClient() {
               </h2>
               <p className="text-muted-foreground">
                 {language === "fr"
-                  ? "Profite de l'offre maintenant, crÇ¸e ta boutique en moins de 3 minutes."
+                  ? "Profite de l'offre maintenant, crée ta boutique en moins de 3 minutes."
                   : "Take advantage of the offer now, create your store in less than 3 minutes."}
               </p>
               <Button
