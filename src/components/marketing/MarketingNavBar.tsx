@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, MessageSquare, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLinkWithUTM } from "@/hooks/useLinkWithUTM";
 import { useLanguage, t } from "@/hooks/useLanguage";
@@ -73,9 +73,6 @@ export function MarketingNavBar() {
                   rel="noopener noreferrer"
                   className="text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-fiitsa-purple"
                 >
-                  {item.icon === "whatsapp" && (
-                    <MessageSquare className="mr-2 inline-block h-4 w-4" />
-                  )}
                   {t(item.label, language)}
                 </a>
               ) : (
@@ -90,9 +87,6 @@ export function MarketingNavBar() {
                       : "text-gray-600 hover:text-fiitsa-purple"
                   }`}
                 >
-                  {item.icon === "whatsapp" && (
-                    <MessageSquare className="mr-2 inline-block h-4 w-4" />
-                  )}
                   {t(item.label, language)}
                 </Link>
               )
