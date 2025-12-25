@@ -36,6 +36,7 @@ export type Database = {
           created_at?: string | null;
         };
         Update: Partial<Database["public"]["Tables"]["posts"]["Insert"]>;
+        Relationships: [];
       };
       post_reviews: {
         Row: {
@@ -59,6 +60,7 @@ export type Database = {
           created_at?: string | null;
         };
         Update: Partial<Database["public"]["Tables"]["post_reviews"]["Insert"]>;
+        Relationships: [];
       };
       post_views: {
         Row: {
@@ -96,6 +98,7 @@ export type Database = {
           location?: Record<string, unknown> | null;
         };
         Update: Partial<Database["public"]["Tables"]["post_views"]["Insert"]>;
+        Relationships: [];
       };
     };
     Functions: {

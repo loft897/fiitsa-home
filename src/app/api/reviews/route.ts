@@ -1,3 +1,4 @@
+import type { Database } from "@/lib/supabaseTypes";
 import { NextResponse } from "next/server";
 import { rateLimit } from "@/lib/rateLimit";
 import { getSupabaseServer } from "@/lib/supabaseServer";
@@ -50,7 +51,7 @@ export async function POST(request: Request) {
     }
   }
 
-  const payload = {
+  const payload: Database["public"]["Tables"]["post_reviews"]["Insert"] = {
     post_id: review.postId,
     rating: review.rating,
     name: review.name || null,
@@ -59,7 +60,7 @@ export async function POST(request: Request) {
     is_approved: false,
   };
 
-  const { error } = await supabaseServer.from("post_reviews").insert([payload]);
+  const { error } = await supabaseServer.from("post_reviews").insert(payload);
 
   if (error) {
     return NextResponse.json({ message: "Erreur serveur." }, { status: 500 });
