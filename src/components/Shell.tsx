@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 import { MarketingNavBar } from "@/components/marketing/MarketingNavBar";
@@ -39,7 +39,11 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className={isEmbed ? "bg-white" : "bg-white"}>
-      {!isEmbed && <MarketingNavBar />}
+      {!isEmbed && (
+        <Suspense fallback={null}>
+          <MarketingNavBar />
+        </Suspense>
+      )}
       <main
         className={
           isEmbed
