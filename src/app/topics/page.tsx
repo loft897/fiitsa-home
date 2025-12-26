@@ -37,7 +37,7 @@ export default function TopicsPage() {
     <div className="space-y-6">
       <h1 className="text-3xl font-semibold">Topics</h1>
       <p className="text-sm text-muted-foreground">
-        Explore les pages piliers et les articles associes.
+        Explore les pages piliers et les articles associ?s.
       </p>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {topics.map((topic) => (

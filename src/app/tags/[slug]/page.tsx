@@ -82,7 +82,7 @@ export default async function TagPage({
       <div className="text-sm text-muted-foreground">
         Voir aussi toutes les catégories et tags.{" "}
         <a className="text-primary underline" href="/categories">
-          Categories
+          Cat?gories
         </a>{" "}
         <span>·</span>{" "}
         <a className="text-primary underline" href="/tags">
