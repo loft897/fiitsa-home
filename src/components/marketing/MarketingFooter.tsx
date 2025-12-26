@@ -93,8 +93,8 @@ export function MarketingFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/légal" className="text-gray-300 transition-colors hover:text-fiitsa-gold">
-                  {language === "fr" ? "Mentions légales" : "Légal notice"}
+                <Link href="/legal" className="text-gray-300 transition-colors hover:text-fiitsa-gold">
+                  {language === "fr" ? "Mentions légales" : "Legal notice"}
                 </Link>
               </li>
             </ul>
@@ -115,7 +115,7 @@ export function MarketingFooter() {
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-fiitsa-gold" />
                 <a
-                  href="https://wa.me/237657817281"
+                  href="https://wa.me/33763477907"
                   className="text-gray-300 transition-colors hover:text-fiitsa-gold"
                 >
                   +33 7 63 47 79 07
@@ -152,7 +152,7 @@ export function MarketingFooter() {
             </a>
           </div>
           <p className="text-sm text-gray-400">
-            {new Date().getFullYear()} Fiitsa. {language === "fr" ? "Tous droits reserves." : "All rights reserved."}
+            {new Date().getFullYear()} Fiitsa. {language === "fr" ? "Tous droits reservés." : "All rights reserved."}
           </p>
         </div>
       </div>
