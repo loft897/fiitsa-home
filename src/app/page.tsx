@@ -38,8 +38,11 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <Suspense fallback={null}>
-      <HomeClient />
-    </Suspense>
+    <>
+      <h1 className="sr-only">Fiitsa - Ta boutique. Tes regles. Tes gains.</h1>
+      <Suspense fallback={null}>
+        <HomeClient />
+      </Suspense>
+    </>
   );
 }
