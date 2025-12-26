@@ -12,7 +12,7 @@ export default function NotFound() {
       ? {
           title: "Page introuvable",
           description: "La page que vous cherchez n'existe pas ou a été déplacée.",
-          cta: "Retour ? laccueil",
+          cta: "Retour à l'accueil",
         }
       : {
           title: "Page not found",

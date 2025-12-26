@@ -77,6 +77,9 @@ export function ArticleContent({ content }: { content: string }) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]]}
+        components={{
+          h1: ({ children, ...props }) => <h2 {...props}>{children}</h2>,
+        }}
       >
         {transformed}
       </ReactMarkdown>

@@ -37,8 +37,11 @@ export const metadata: Metadata = {
 
 export default function FeaturesPage() {
   return (
-    <Suspense fallback={null}>
-      <FeaturesClient />
-    </Suspense>
+    <>
+      <h1 className="sr-only">Fonctionnalites Fiitsa</h1>
+      <Suspense fallback={null}>
+        <FeaturesClient />
+      </Suspense>
+    </>
   );
 }
