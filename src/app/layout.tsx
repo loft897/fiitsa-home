@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Fira_Code, Space_Grotesk, Source_Sans_3 } from "next/font/google";
 import { SEOJsonLd } from "@/components/SEOJsonLd";
 import { Shell } from "@/components/Shell";
@@ -25,20 +25,17 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.fiitsa.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Fiitsa - Crée ta boutique en ligne en 3 minutes",
+    default: "Fiitsa - Boutique en ligne africaine, Mobile Money & IA",
     template: "%s | Fiitsa",
   },
   description:
-    "Fiitsa aide les entrepreneurs africains à créer leur boutique en ligne, vendre et encaisser avec mobile money.",
-  alternates: {
-    canonical: siteUrl,
-  },
+    "Fiitsa est une plateforme e-commerce africaine pour vendre produits et services, encaisser via Mobile Money, WhatsApp et carte, avec 7% de commission.",
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Fiitsa - Crée ta boutique en ligne en 3 minutes",
+    title: "Fiitsa - Boutique en ligne africaine, Mobile Money & IA",
     description:
-      "Fiitsa aide les entrepreneurs africains à créer leur boutique en ligne, vendre et encaisser avec mobile money.",
+      "Fiitsa est une plateforme e-commerce africaine pour vendre produits et services, encaisser via Mobile Money, WhatsApp et carte, avec 7% de commission.",
     siteName: "Fiitsa",
     locale: "fr_FR",
     images: [
@@ -52,10 +49,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fiitsa - Crée ta boutique en ligne en 3 minutes",
+    title: "Fiitsa - Boutique en ligne africaine, Mobile Money & IA",
     description:
-      "Fiitsa aide les entrepreneurs africains à créer leur boutique en ligne, vendre et encaisser avec mobile money.",
-    images: ["https://api.fiitsa.com/storage/v1/object/public/fiitsa-files/Fiitsa%20arrondi%20sans%20bg%20(1200%20x%20630%20px).png"],
+      "Fiitsa est une plateforme e-commerce africaine pour vendre produits et services, encaisser via Mobile Money, WhatsApp et carte, avec 7% de commission.",
+    images: [
+      "https://api.fiitsa.com/storage/v1/object/public/fiitsa-files/Fiitsa%20arrondi%20sans%20bg%20(1200%20x%20630%20px).png",
+    ],
   },
   icons: {
     icon: "/icon.png",
@@ -83,8 +82,42 @@ export default function RootLayout({
             "@type": "Organization",
             name: "Fiitsa",
             url: siteUrl,
-            logo: `${siteUrl}/fiitsa-logo.png`,
-            sameAs: ["https://fiitsa.com"],
+            logo: "https://api.fiitsa.com/storage/v1/object/public/fiitsa-files/Logo%20Fiitsa.png",
+            sameAs: [
+              "https://fiitsa.com",
+              "https://web.facebook.com/fiitsa",
+              "https://www.instagram.com/fiitsa_officiel/",
+              "https://www.tiktok.com/@fiitsa_off",
+              "https://www.youtube.com/@Fiitsa",
+            ],
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                telephone: "+33 7 63 47 79 07",
+                contactType: "customer support",
+                areaServed: "FR",
+                availableLanguage: ["French", "English"],
+              },
+            ],
+          }}
+        />
+        <SEOJsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "Fiitsa",
+            url: siteUrl,
+            image:
+              "https://api.fiitsa.com/storage/v1/object/public/fiitsa-files/Fiitsa%20arrondi%20sans%20bg%20(1200%20x%20630%20px).png",
+            telephone: "+33 7 63 47 79 07",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "1704 LLANO ST STE B-1430",
+              addressLocality: "SANTA FE",
+              addressRegion: "NM",
+              postalCode: "87505",
+              addressCountry: "US",
+            },
           }}
         />
         <SEOJsonLd

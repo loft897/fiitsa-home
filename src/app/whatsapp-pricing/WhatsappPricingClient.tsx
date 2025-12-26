@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import MarketingLayout from "@/components/marketing/MarketingLayout";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -30,7 +29,7 @@ const translations = {
       title: "Tarifs WhatsApp Business API Afrique 2025 - Simulateur de prix | Fiitsa",
       description:
         "Découvrez les tarifs WhatsApp Business API pour l'Afrique en 2025. Simulateur de prix interactif, exemples concrets et astuces pour économiser. Marketing, Utilitaire, Authentification.",
-      canonical: "https://fiitsa.com/whatsapp-pricing",
+      canonical: "https://www.fiitsa.com/whatsapp-pricing",
     },
     hero: {
       badge: "Mis à jour : décembre 2025",
@@ -218,7 +217,7 @@ const translations = {
       title: "WhatsApp Business API Pricing Africa 2025 - Price Simulator | Fiitsa",
       description:
         "Discover WhatsApp Business API pricing for Africa in 2025. Interactive price simulator, real examples and tips to save money. Marketing, Utility, Authentication.",
-      canonical: "https://fiitsa.com/whatsapp-pricing",
+      canonical: "https://www.fiitsa.com/whatsapp-pricing",
     },
     hero: {
       badge: "Updated December 2025",
@@ -474,22 +473,6 @@ export default function WhatsAppPricing() {
   const { language: lang } = useLanguage();
   const t = translations[lang];
 
-  useEffect(() => {
-    document.title = t.meta.title;
-    const description =
-      document.querySelector('meta[name="description"]') || document.createElement("meta");
-    description.setAttribute("name", "description");
-    description.setAttribute("content", t.meta.description);
-    if (!description.parentNode) {
-      document.head.appendChild(description);
-    }
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement("link");
-    canonical.setAttribute("rel", "canonical");
-    canonical.setAttribute("href", t.meta.canonical);
-    if (!canonical.parentNode) {
-      document.head.appendChild(canonical);
-    }
-  }, [t.meta.canonical, t.meta.description, t.meta.title]);
 
   const messageTypeCards = [
     {

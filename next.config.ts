@@ -10,7 +10,14 @@ const nextConfig: NextConfig = {
   },
   poweredByHeader: false,
   async redirects() {
-    return [];
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "fiitsa.com" }],
+        destination: "https://www.fiitsa.com/:path*",
+        permanent: true,
+      },
+    ];
   },
 };
 

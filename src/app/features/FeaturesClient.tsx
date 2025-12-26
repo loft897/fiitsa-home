@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import {
   ShoppingBag,
   CreditCard,
@@ -25,30 +24,6 @@ export default function FeaturesClient() {
   const premiumUrl = createExternalLink("https://app.fiitsa.com/register?plan=premium");
   const betaUrl = createLink("/beta-testing-program");
 
-  useEffect(() => {
-    document.title =
-      language === "fr"
-        ? "Fonctionnalités Fiitsa - Vendre en ligne en Afrique"
-        : "Fiitsa Features - Sell online in Africa";
-    const description =
-      document.querySelector('meta[name="description"]') || document.createElement("meta");
-    description.setAttribute("name", "description");
-    description.setAttribute(
-      "content",
-      language === "fr"
-        ? "Découvre les fonctionnalités Fiitsa pour vendre produits, services et formations. Paiements Mobile Money, IA, marketing, et plus."
-        : "Discover Fiitsa features to sell products, services and training. Mobile Money payments, AI, marketing, and more."
-    );
-    if (!description.parentNode) {
-      document.head.appendChild(description);
-    }
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement("link");
-    canonical.setAttribute("rel", "canonical");
-    canonical.setAttribute("href", "https://fiitsa.com/features");
-    if (!canonical.parentNode) {
-      document.head.appendChild(canonical);
-    }
-  }, [language]);
 
   const steps = [
     {

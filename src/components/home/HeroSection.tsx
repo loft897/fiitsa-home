@@ -43,11 +43,11 @@ export default function HeroSection() {
         <div className="flex flex-col gap-8 md:gap-12 lg:gap-16">
           <div className="mx-auto max-w-4xl space-y-4 text-center animate-fade-in md:space-y-6">
             <div className="space-y-3 md:space-y-4">
-              <h1 className="text-3xl font-black leading-tight text-fiitsa-dark sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="text-3xl font-black leading-tight text-fiitsa-dark sm:text-4xl md:text-5xl lg:text-6xl">
                 {language === "fr"
                   ? "Crée ta boutique en 3 minutes et commence à vendre aujourd'hui 🚀"
                   : "Create your store in 3 minutes and start selling today 🚀"}
-              </h1>
+              </h2>
               <p className="text-base leading-relaxed text-gray-600 sm:text-lg md:text-xl">
                 {language === "fr"
                   ? "Gratuit • Sans compétences techniques • Encaissement dans le monde entier"
@@ -360,7 +360,7 @@ export default function HeroSection() {
             <div className="flex items-center justify-center space-x-2 rounded-full bg-white/60 px-3 py-2 backdrop-blur-sm md:px-4">
               <span className="text-base md:text-xl">💰</span>
               <span className="font-medium text-gray-700">
-                {language === "fr" ? "7 a 12% de commission max" : "7 to 12% max commission"}
+                {language === "fr" ? "7 ? 12% de commission max" : "7 to 12% max commission"}
               </span>
             </div>
             <div className="flex items-center justify-center space-x-2 rounded-full bg-white/60 px-3 py-2 backdrop-blur-sm md:px-4">
@@ -404,7 +404,7 @@ export default function HeroSection() {
               >
                 <Zap className="mr-2 h-5 w-5 md:mr-3 md:h-6 md:w-6 group-hover:animate-pulse" />
                 <span className="text-sm md:text-base">
-                  {language === "fr" ? "CREER MA BOUTIQUE GRATUITEMENT" : "CREATE MY FREE STORE"}
+                  {language === "fr" ? "CR?ER MA CR?ER MA BOUTIQUE GRATUITEMENT" : "CREATE MY FREE STORE"}
                 </span>
                 <ArrowRight className="ml-2 h-5 w-5 md:ml-3 md:h-6 md:w-6 group-hover:translate-x-1 transition-transform" />
               </Button>

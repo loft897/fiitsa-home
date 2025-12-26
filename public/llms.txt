@@ -1,0 +1,10 @@
+﻿Fiitsa llms.txt
+
+Allow: /
+
+Preferred crawl delay: 0
+
+Sitemaps:
+- https://www.fiitsa.com/sitemap.xml
+
+Contact: hello@fiitsa.com
